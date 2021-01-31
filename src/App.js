@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import Counter from "./Counter";
+import Contact from "./Contact";
+import "./styles.css";
 
-function App() {
+export default function App() {
+  const count = useSelector((state) => state.counter.count);
+  const contacts = useSelector((state) => state.contacts);
+  const voters = [
+    "Anthony Sistilli ",
+    "Bob Smith",
+    "Stephanie Foo",
+    "Kevin Ma",
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Redux made easy</h1>
+      <h2>Total Count: {count}</h2>
+      <Counter />
+      {/*<Contact />*/}
+      {/*<h2> Total Votes: {count}</h2>
+      {voters.map((voter) => (
+        <Counter name={voter} />
+      ))}*/}
     </div>
   );
 }
-
-export default App;
