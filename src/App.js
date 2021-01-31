@@ -18,7 +18,7 @@ export default function App() {
       <h1>Redux made easy</h1>
       <h2>Total Count: {count}</h2>
       <Counter />
-      {/*<Contact />*/}
+      <Contact />
       {/*<h2> Total Votes: {count}</h2>
       {voters.map((voter) => (
         <Counter name={voter} />

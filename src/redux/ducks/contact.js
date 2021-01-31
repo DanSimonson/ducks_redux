@@ -18,7 +18,7 @@ const initialState = {
   id: 1,
 };
 
-export default (state = initialState, action) => {
+export default (state = { contacts: [] }, action) => {
   switch (action.type) {
     case ADD:
       return {
