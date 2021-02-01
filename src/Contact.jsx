@@ -1,36 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { ADD, REMOVE } from "./redux/ducks/counter";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 const ContainerDiv = styled.div`
-  border: 5px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const initialFormState = [
-  {
-    lastName: "",
-    firstName: "",
-    phone: "",
-    id: 0,
-  },
-];
+const DisplayDiv = styled.div``;
 
 function Contact() {
-  const [contact, setContact] = useState(initialFormState);
+  const [contact, setContact] = useState([]);
   const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contacts);
 
   const handleChange = (event) => {
-    console.log("event.target.value: ", event.target.value);
     setContact({
       ...contact,
       [event.target.name]: event.target.value,
     });
-    console.log("contact: ", contact);
   };
   const handleAdd = () => {
-    console.log("contacts: ", contact);
     dispatch({
       type: "add",
       payload: {
@@ -40,21 +29,14 @@ function Contact() {
         id: Math.ceil(Math.random() * 100),
       },
     });
-    console.log("contacts: ", contact);
+    setContact({
+      lastName: "",
+      firstName: "",
+      phone: "",
+    });
   };
-  const handleRemove = () => {
-    //dispatch(remove());
-  };
-  /**
-   * dispatch({
-   * type: 'ADD',
-   * payload: {
-   * lastName: lastName,
-   * firstName: firstName,
-   * phone: phone,
-   * email: email
-   * }})
-   */
+  const handleRemove = () => {};
+
   return (
     <ContainerDiv>
       <input
@@ -82,7 +64,15 @@ function Contact() {
         id="phone"
       ></input>
       <button onClick={handleAdd}> ADD </button>
-      <button onClick={handleRemove}> REMOVE </button>
+      {/*<button onClick={handleRemove}> REMOVE </button>*/}
+      {contacts.contacts.length > 0 &&
+        contacts.contacts.map((contact) => (
+          <DisplayDiv>
+            <p key={contact.id}>{contact.lastName}</p>
+            <p key={contact.id}>{contact.firstName}</p>
+            <p key={contact.id}>{contact.phone}</p>
+          </DisplayDiv>
+        ))}
     </ContainerDiv>
   );
 }

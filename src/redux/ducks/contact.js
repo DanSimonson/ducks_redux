@@ -1,23 +1,9 @@
+//constants
 const ADD = "add";
 const REMOVE = "remove";
 const EDIT = "edit";
 
-//actions
-/*export const add = () => ({
-  type: ADD,
-});
-
-export const remove = () => ({
-  type: REMOVE,
-});*/
-
-const initialState = {
-  lastName: "",
-  firstName: "",
-  phone: "",
-  id: 1,
-};
-
+//reducer
 export default (state = { contacts: [] }, action) => {
   switch (action.type) {
     case ADD:
