@@ -35,7 +35,12 @@ function Contact() {
       phone: "",
     });
   };
-  const handleRemove = () => {};
+  const handleRemove = (id) => {
+    dispatch({
+      type: "remove",
+      payload: id,
+    });
+  };
 
   return (
     <ContainerDiv>
@@ -64,13 +69,14 @@ function Contact() {
         id="phone"
       ></input>
       <button onClick={handleAdd}> ADD </button>
-      {/*<button onClick={handleRemove}> REMOVE </button>*/}
       {contacts.contacts.length > 0 &&
         contacts.contacts.map((contact) => (
-          <DisplayDiv>
-            <p key={contact.id}>{contact.lastName}</p>
-            <p key={contact.id}>{contact.firstName}</p>
-            <p key={contact.id}>{contact.phone}</p>
+          <DisplayDiv key={contact.id}>
+            <p>Contact Details</p>
+            <p>{contact.lastName}</p>
+            <p>{contact.firstName}</p>
+            <p>{contact.phone}</p>
+            <button onClick={() => handleRemove(contact.id)}>Delete</button>
           </DisplayDiv>
         ))}
     </ContainerDiv>
