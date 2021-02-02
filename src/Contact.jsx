@@ -4,7 +4,6 @@ import styled from "styled-components";
 import "./Contact.css";
 
 const ContainerDiv = styled.div`
-  border: 5px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,10 +82,10 @@ function Contact() {
         ></input>
         <button onClick={handleAdd}> ADD </button>
       </ContainerDiv>
-      {contacts.contacts.length > 0 &&
-        contacts.contacts.map((contact) => (
-          <div className="container">
-            <main className="grid">
+      <div className="container">
+        <main className="grid">
+          {contacts.contacts.length > 0 &&
+            contacts.contacts.map((contact) => (
               <article>
                 <div className="text">
                   <h3>Contact Details</h3>
@@ -98,9 +97,9 @@ function Contact() {
                   </button>
                 </div>
               </article>
-            </main>
-          </div>
-        ))}
+            ))}
+        </main>
+      </div>
     </>
   );
 }
