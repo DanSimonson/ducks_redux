@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import "./Contact.css";
+
 const ContainerDiv = styled.div`
+  border: 5px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 const DisplayDiv = styled.div``;
+/**
+ * {/*<DisplayDiv key={contact.id}>
+            <p>Contact Details</p>
+            <p>{contact.lastName}</p>
+            <p>{contact.firstName}</p>
+            <p>{contact.phone}</p>
+            <button onClick={() => handleRemove(contact.id)}>Delete</button>
+        </DisplayDiv>
+*/
 
 function Contact() {
   const [contact, setContact] = useState([]);
@@ -43,43 +55,53 @@ function Contact() {
   };
 
   return (
-    <ContainerDiv>
-      <input
-        type="text"
-        value={contact.lastName}
-        placeholder="Last Name"
-        onChange={handleChange}
-        name="lastName"
-        id="lastName"
-      ></input>
-      <input
-        type="text"
-        value={contact.firstName}
-        placeholder="First Name"
-        onChange={handleChange}
-        name="firstName"
-        id="firstName"
-      ></input>
-      <input
-        type="text"
-        value={contact.phone}
-        placeholder="Phone"
-        onChange={handleChange}
-        name="phone"
-        id="phone"
-      ></input>
-      <button onClick={handleAdd}> ADD </button>
+    <>
+      <ContainerDiv>
+        <input
+          type="text"
+          value={contact.lastName}
+          placeholder="Last Name"
+          onChange={handleChange}
+          name="lastName"
+          id="lastName"
+        ></input>
+        <input
+          type="text"
+          value={contact.firstName}
+          placeholder="First Name"
+          onChange={handleChange}
+          name="firstName"
+          id="firstName"
+        ></input>
+        <input
+          type="text"
+          value={contact.phone}
+          placeholder="Phone"
+          onChange={handleChange}
+          name="phone"
+          id="phone"
+        ></input>
+        <button onClick={handleAdd}> ADD </button>
+      </ContainerDiv>
       {contacts.contacts.length > 0 &&
         contacts.contacts.map((contact) => (
-          <DisplayDiv key={contact.id}>
-            <p>Contact Details</p>
-            <p>{contact.lastName}</p>
-            <p>{contact.firstName}</p>
-            <p>{contact.phone}</p>
-            <button onClick={() => handleRemove(contact.id)}>Delete</button>
-          </DisplayDiv>
+          <div className="container">
+            <main className="grid">
+              <article>
+                <div className="text">
+                  <h3>Contact Details</h3>
+                  <p>{contact.lastName}</p>
+                  <p>{contact.firstName}</p>
+                  <p>{contact.phone}</p>
+                  <button onClick={() => handleRemove(contact.id)}>
+                    Delete
+                  </button>
+                </div>
+              </article>
+            </main>
+          </div>
         ))}
-    </ContainerDiv>
+    </>
   );
 }
 
