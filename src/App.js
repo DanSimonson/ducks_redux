@@ -8,7 +8,6 @@ import contact from "./redux/ducks/contact";
 export default function App() {
   return (
     <div className="App">
-      <h1>Redux made easy</h1>
       <Contact />
     </div>
   );

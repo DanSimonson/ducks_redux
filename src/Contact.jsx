@@ -2,22 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import "./Contact.css";
+import Footer from "./components/Footer";
 
-const ContainerDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+const ontainerDiv = styled.div``;
 const DisplayDiv = styled.div``;
-/**
- * {/*<DisplayDiv key={contact.id}>
-            <p>Contact Details</p>
-            <p>{contact.lastName}</p>
-            <p>{contact.firstName}</p>
-            <p>{contact.phone}</p>
-            <button onClick={() => handleRemove(contact.id)}>Delete</button>
-        </DisplayDiv>
-*/
 
 function Contact() {
   const [contact, setContact] = useState([]);
@@ -55,33 +43,50 @@ function Contact() {
 
   return (
     <>
-      <ContainerDiv>
-        <input
-          type="text"
-          value={contact.lastName}
-          placeholder="Last Name"
-          onChange={handleChange}
-          name="lastName"
-          id="lastName"
-        ></input>
-        <input
-          type="text"
-          value={contact.firstName}
-          placeholder="First Name"
-          onChange={handleChange}
-          name="firstName"
-          id="firstName"
-        ></input>
-        <input
-          type="text"
-          value={contact.phone}
-          placeholder="Phone"
-          onChange={handleChange}
-          name="phone"
-          id="phone"
-        ></input>
-        <button onClick={handleAdd}> ADD </button>
-      </ContainerDiv>
+      <div className="containerDiv">
+        <h1>
+          <span> Mariposaweb </span> Contact Form
+        </h1>
+        <p className="formPara">
+          <label>Last Name</label>
+          <input
+            type="text"
+            value={contact.lastName}
+            placeholder="Last Name"
+            onChange={handleChange}
+            name="lastName"
+            id="lastName"
+          ></input>
+        </p>
+        <p className="formPara">
+          <label>First Name</label>
+          <input
+            type="text"
+            value={contact.firstName}
+            placeholder="First Name"
+            onChange={handleChange}
+            name="firstName"
+            id="firstName"
+          ></input>
+        </p>
+        <p className="formPara">
+          <label>Phone</label>
+          <input
+            type="text"
+            value={contact.phone}
+            placeholder="Phone"
+            onChange={handleChange}
+            name="phone"
+            id="phone"
+          ></input>
+        </p>
+        <p className="formPara">
+          <button className="formButton" onClick={handleAdd}>
+            {" "}
+            ADD{" "}
+          </button>
+        </p>
+      </div>
       <div className="container">
         <main className="grid">
           {contacts.contacts.length > 0 &&
@@ -100,6 +105,7 @@ function Contact() {
             ))}
         </main>
       </div>
+      <Footer />
     </>
   );
 }

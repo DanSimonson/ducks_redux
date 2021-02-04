@@ -1,6 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/**
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+*/
+body {
+  background: #bbdefb;
+}
+
+/** form styles*/
+.containerDiv {
+  border: 1px solid #eee5e9;
+  background: #eee5e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
+  box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+  height: 50%;
+}
+.containerDiv h1 {
+  margin-top: 2rem;
+}
+.formPara {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 1rem 0;
+  padding: 2rem auto 2rem auto;
+  width: 15%;
+  min-width: 300px;
+  font-size: 1.5rem;
+}
+.formPara label {
+  margin-bottom: 1rem;
+}
+.formPara input[type="text"] {
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  padding: 8px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+}
+.formPara input[type="text"]:hover,
+.formPara input[type="text"]:focus {
+  /*border: #eee5e9;
+  box-shadow: 0 0 8px 0 #eee5e9;*/
+}
+h1 > span {
+  color: #fff;
+}
+.formButton {
+  background: #eee5e9;
+  outline: none;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.formButton:hover {
+  transform: scale(1.1);
+}
+
+/** grid styles */
 .container {
   display: flex;
   justify-content: center;
+  min-height: 305px;
+  height: 100%;
 }
 .grid {
   margin: 80px;
@@ -14,11 +86,14 @@
 .grid > article {
   background: #eee5e9;
   border: none;
+  margin-bottom: 5rem;
+  padding: 1rem;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   text-align: center;
   width: 250px;
   transition: transform 0.3s;
+  height: 100%;
 }
 
 .grid > article:hover {
@@ -42,6 +117,9 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+.spacer {
+  height: 100px;
+}
 
 @media (max-width: 850px) {
   .grid {
@@ -52,5 +130,11 @@
 @media (max-width: 570px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 325) {
+  .formButton {
+    min-width: 300px;
   }
 }
