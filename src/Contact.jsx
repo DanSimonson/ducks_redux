@@ -4,8 +4,8 @@ import styled from "styled-components";
 import "./Contact.css";
 import Footer from "./components/Footer";
 
-const ontainerDiv = styled.div``;
-const DisplayDiv = styled.div``;
+//const ontainerDiv = styled.div``;
+//const DisplayDiv = styled.div``;
 
 function Contact() {
   const [contact, setContact] = useState([]);
