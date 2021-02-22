@@ -1,6 +1,6 @@
 ### React-Redux with Hooks Project
 
-> This is a React app utilizing redux with hooks to manage it's state.
+> This is a React app utilizing redux with hooks to manage it's state, utilizing useDispatch and useSelector.
 
 ### DEMO
 
