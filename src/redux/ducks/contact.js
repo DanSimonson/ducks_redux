@@ -1,4 +1,4 @@
-//constants
+//constants action types
 const ADD = "add";
 const REMOVE = "remove";
 const EDIT = "edit";
